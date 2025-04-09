@@ -101,7 +101,7 @@ pipeline {
         }
 
 
-        stage('11. Cleanup Docker Images') {
+        stage('10. Cleanup Docker Images') {
             steps {
                 sh """
                 docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
