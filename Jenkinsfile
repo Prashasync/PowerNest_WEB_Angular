@@ -42,13 +42,13 @@ pipeline {
                 sh "npm install"
             }
         }
-
+/*
         stage('4. Build Angular Application') {
             steps {
                 sh "npm run build"
             }
         }
-
+*/
         stage('5. Trivy Scan') {
             steps {
                 sh "trivy fs . > trivy.txt"
