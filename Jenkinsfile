@@ -100,19 +100,6 @@ pipeline {
             }
         }
 
-        stage('10. Deploy to Kubernetes') {
-            steps {
-                withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG_CONTENT')]) {
-                    sh """
-                    echo "$KUBECONFIG_CONTENT" > kubeconfig
-                    export KUBECONFIG=kubeconfig
-                    kubectl set image deployment/angular-app angular-app=${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER} -n ${params.K8S_NAMESPACE} || \
-                    kubectl apply -f k8s_files/deployment.yaml -n ${params.K8S_NAMESPACE}
-                    kubectl apply -f k8s_files/service.yaml -n ${params.K8S_NAMESPACE}
-                    """
-                }
-            }
-        }
 
         stage('11. Cleanup Docker Images') {
             steps {
