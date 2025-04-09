@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: angular-app
-        image: 463470954735.dkr.ecr.us-east-1.amazonaws.com/powernest_ui:latest # Replace with your image
+        image: 463470954735.dkr.ecr.us-east-1.amazonaws.com/powernest_ui:11 # Replace with your image
         ports:
         - containerPort: 80
         resources:
