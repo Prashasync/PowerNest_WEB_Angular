@@ -19,10 +19,3 @@ spec:
         image: 463470954735.dkr.ecr.us-east-1.amazonaws.com/powernest_ui:latest # Replace with your image
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
