@@ -1,28 +1,23 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: angular-app
+  name: angular-app-service
   labels:
-    app: angular-app
+    app: angular-app-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: angular-app
+      app: angular-app-service
   template:
     metadata:
       labels:
-        app: angular-app
+        app: angular-app-service
     spec:
       containers:
-      - name: angular-app
-        image: 463470954735.dkr.ecr.us-east-1.amazonaws.com/powernest_ui:latest # Replace with your image
+      - name: angular-app-service-container
+        image: 463470954735.dkr.ecr.us-east-1.amazonaws.com/powernest_ui:latest
         ports:
-        - containerPort: 80
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
+        - containerPort: 4000
+...
