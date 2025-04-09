@@ -1,17 +1,12 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-app
-  labels:
-    app: angular-app
+  name: angular-app-service
 spec:
-  ports:
-  - name: http
-    port: 3000
-    protocol: TCP
-    targetPort: 3000
   selector:
-    app: angular-app-app
+    app: angular-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
   type: LoadBalancer
-...
